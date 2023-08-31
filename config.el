@@ -3,13 +3,49 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-(setq user-full-name "izzy meyer"
+;; Basic Setup
+(setq user-full-name "izzy Meyer"
       user-mail-address "izder456@disroot.org")
 
-(setq doom-font (font-spec :family "IosevkaTerm Nerd Font Mono" :size 15 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font Mono" :size 15))
+(setq doom-font (font-spec :family "GohuFont uni14 Nerd Font Mono" :size 14 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "GohuFont uni14 Nerd Font Propo" :size 14))
 
 (setq doom-theme 'doom-gruvbox)
+
+(setq fancy-splash-image (concat doom-private-dir "hantyumi.png"))
+
+;; Language specifics
+(require 'flycheck)
+(setq flycheck-check-syntax-automatically '(mode-enabled save))
+(setq flycheck-display-errors-delay 0.3)
+
+;; Perl
+(fset 'perl-mode 'cperl-mode)
+(add-hook 'cperl-mode-hook 'flycheck-mode)
+
+;; BASH
+(add-hook 'bash-ts-mode-hook 'flycheck-mode)
+
+;; Clojure
+(add-hook 'clojure-mode-hook 'flycheck-mode)
+
+;; Scheme
+(add-hook 'scheme-mode-hook 'flycheck-mode)
+
+;; Ruby
+(add-hook 'ruby-mode-hook 'flycheck-mode)
+
+;; Lisp
+(add-hook 'lisp-mode-hook 'flycheck-mode)
+
+;; HTML
+(add-hook 'html-mode-hook 'flycheck-mode)
+
+;; CSS
+(add-hook 'css-mode-hook 'flycheck-mode)
+
+;; C/C++
+(add-hook 'c-mode-hook 'flycheck-mode)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.

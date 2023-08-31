@@ -2,6 +2,8 @@
 
 - Mainly for personal experimentation, but if ya wantem, use em.
 
+- Intended for use with DOOM Emacs
+
 - I ain't gonna support any mishaps on your machine, as this is a *pet project*.
 
 ## DISCLAIMER:
