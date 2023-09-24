@@ -17,4 +17,3 @@
 (package! irony-eldoc)
 (package! company-irony-c-headers)
 (package! irony)
-(package! emacs-jabber)
