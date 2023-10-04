@@ -1,3 +1,7 @@
+;;;;;;;;;;;;;;;;;;;;;
+;; NATIVE PACKAGES ;;
+;;;;;;;;;;;;;;;;;;;;;
+
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
        ;;chinese

@@ -1,3 +1,7 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;; NON-NATIVE PACKAGES ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (package! dired-hacks-utils)
 (package! ripgrep)
 (package! projectile)

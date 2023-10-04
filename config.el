@@ -1,3 +1,8 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; SET DOOM CONFIG OPTS ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (setq doom-font (font-spec :family "Spleen" :size 16 :weight 'Regular)
       doom-variable-pitch-font (font-spec :family "Spleen" :size 16 :weight 'Regular))
 (setq doom-theme 'doom-gruvbox)
@@ -6,7 +11,9 @@
 
 (setq org-directory "~/Documents")
 
-;; Language Specifics
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; LANGUAGE-SPECIFIC SETTINGS ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Perl
 (fset 'perl-mode 'cperl-mode)
@@ -19,23 +26,13 @@
 (setq display-line-numbers-type t)
 (add-hook 'scheme-mode-hook #'geiser-mode--maybe-activate)
 
+;;;;;;;;;;;;;;;;
+;; AUTOSTARTS ;;
+;;;;;;;;;;;;;;;;
+
 ;; XClip
 (xclip-mode 1)
 
-;; Global Revert
-(global-auto-revert-mode 1)
-(setq global-auto-revert-non-file-buffers t)
-
-;; EViL Binds
-(evil-define-key 'normal ibuffer-mode-map
-  (kbd "f c") 'ibuffer-filter-by-content
-  (kbd "f d") 'ibuffer-filter-by-directory
-  (kbd "f f") 'ibuffer-filter-by-filename
-  (kbd "f m") 'ibuffer-filter-by-mode
-  (kbd "f n") 'ibuffer-filter-by-name
-  (kbd "f x") 'ibuffer-filter-disable
-  (kbd "g h") 'ibuffer-do-kill-lines
-  (kbd "g H") 'ibuffer-update)
 
 ;; Mouse Support
 (xterm-mouse-mode 1)
