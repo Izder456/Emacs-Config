@@ -27,7 +27,7 @@
 
 * Code Structure
 
-** [[init.el][=init.el=]
+** [[init.el][=init.el=]]
 
 this is the package delcaration of DOOM Emacs Native packages
 
