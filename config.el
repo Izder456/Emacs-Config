@@ -1,19 +1,26 @@
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; SET DOOM CONFIG OPTS ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (setq doom-font (font-spec :family "Spleen" :size 16 :weight 'Regular)
       doom-variable-pitch-font (font-spec :family "Spleen" :size 16 :weight 'Regular))
 (setq doom-theme 'doom-gruvbox)
 
 (setq fancy-splash-image (concat doom-user-dir "giegue.png"))
 
-(setq org-directory "~/Documents")
+(custom-set-faces!
+  '(doom-dashboard-banner :foreground "#EBDBB2" :background "#282828" :weight bold)
+  '(doom-dashboard-footer :inherit font-lock-constant-face)
+  '(doom-dashboard-footer-icon :inherit nerd-icons-red)
+  '(doom-dashboard-loaded :inherit font-lock-warning-face)
+  '(doom-dashboard-menu-desc :inherit font-lock-string-face)
+  '(doom-dashboard-menu-title :inherit font-lock-function-name-face))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; LANGUAGE-SPECIFIC SETTINGS ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(custom-set-faces!
+  '(mode-line :family "Spleen" :height 1.0)
+  '(mode-line-inactive :family "Spleen" :height 1.0))
+
+;; Autofix Fonts
+(add-hook 'after-setting-font-hook #'cnfonts-set-font)
+
+;; Org-mode
+(setq org-directory "~/Documents")
 
 ;; Perl
 (fset 'perl-mode 'cperl-mode)
@@ -25,10 +32,6 @@
 (setq scheme-program-name "chicken-csi -c:")
 (setq display-line-numbers-type t)
 (add-hook 'scheme-mode-hook #'geiser-mode--maybe-activate)
-
-;;;;;;;;;;;;;;;;
-;; AUTOSTARTS ;;
-;;;;;;;;;;;;;;;;
 
 ;; XClip
 (xclip-mode 1)
