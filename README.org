@@ -277,7 +277,7 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 (rainbow-delimiters-mode)
 #+END_SRC
 
-*** IDE-FEATURES
+*** =IDE-FEATURES=
 
 #+BEGIN_SRC elisp :tangle config.el
 ;; Neotree
