@@ -9,3 +9,9 @@
 
 # Undo-tree save-files
 *.~undo-tree
+
+# Customs
+custom.el
+
+# Logs
+*log*
