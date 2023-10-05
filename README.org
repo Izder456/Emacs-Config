@@ -138,7 +138,7 @@ this is the package delcaration of DOOM Emacs Native packages
        (clojure +lsp)         ; java with a lisp
        common-lisp            ; if you've seen one lisp, you've seen them all
        ;;coq                  ; proofs-as-programs
-       (crystal +lsp)         ; ruby at the speed of c
+       ;;(crystal +lsp)       ; ruby at the speed of c
        ;;csharp               ; unity, .NET, and mono shenanigans
        data                   ; config/data formats
        ;;(dart +flutter)      ; paint ui and not much else
@@ -154,21 +154,21 @@ this is the package delcaration of DOOM Emacs Native packages
        ;;fsharp               ; ML stands for Microsoft's Language
        ;;fstar                ; (dependent) types and (monadic) effects and Z3
        ;;gdscript             ; the language you waited for
-       (go +lsp)              ; the hipster dialect
+       ;;(go +lsp)            ; the hipster dialect
        ;;(graphql +lsp)       ; Give queries a REST
        ;;(haskell +lsp)       ; a language that's lazier than I am
        ;;hy                   ; readability of scheme w/ speed of python
        ;;idris                ; a language you can depend on
-       (json +lsp)                 ; At least it ain't XML
+       (json +lsp)            ; At least it ain't XML
        ;;(java +lsp)          ; the poster child for carpal tunnel syndrome
-       ;;(javascript +lsp)           ; all(hope(abandon(ye(who(enter(here))))))
+       ;;(javascript +lsp)    ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia                ; a better, faster MATLAB
        ;;kotlin               ; a better, slicker Java(Script)
        ;;latex                ; writing papers in Emacs has never been so fun
        ;;lean                 ; for folks with too much to prove
        ;;ledger               ; be audit you can be
        ;;(lua +lsp)           ; one-based indices? one-based indices
-       markdown               ; writing docs for people to ignore
+       ;;markdown             ; writing docs for people to ignore
        ;;(nim +lsp)           ; python + lisp at the speed of c
        ;;nix                  ; I hereby declare "nix geht mehr!"
        ;;ocaml                ; an objective camel
@@ -191,7 +191,7 @@ this is the package delcaration of DOOM Emacs Native packages
        ;;solidity             ; do you need a blockchain? No.
        ;;swift                ; who asked for emoji variables?
        ;;terra                ; Earth and Moon in alignment for performance.
-       (web +lsp)             ; the tubes
+       ;;(web +lsp)           ; the tubes
        (yaml +lsp)            ; JSON, but readable
        ;;(zig +lsp)           ; C, but simpler
 
@@ -236,11 +236,8 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
   '(doom-dashboard-menu-title :inherit font-lock-function-name-face))
 
 (custom-set-faces!
-  '(mode-line :family "Spleen" :height 1.0)
-  '(mode-line-inactive :family "Spleen" :height 1.0))
-
-;; Autofix Fonts
-(add-hook 'after-setting-font-hook #'cnfonts-set-font)
+  '(mode-line :family "Spleen" :size 12 :height 0.9)
+  '(mode-line-inactive :family "Spleen" :size 12 :height 0.9))
 
 #+END_SRC
 
@@ -256,6 +253,12 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 ;; Clojure
 (add-hook 'clojure-mode-hook #'cider-jack-in)
 
+;; C/++
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
 ;; Chicken Scheme
 (setq scheme-program-name "chicken-csi -c:")
 (setq display-line-numbers-type t)
@@ -267,7 +270,6 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 #+BEGIN_SRC elisp :tangle config.el
 ;; XClip
 (xclip-mode 1)
-
 
 ;; Mouse Support
 (xterm-mouse-mode 1)
@@ -289,6 +291,10 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 (map! :leader
       :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
       :desc "Open directory in neotree"  "d n" #'neotree-dir)
+
+;; ORG-mode
+(require 'org-auto-tangle)
+(add-hook 'org-mode-hook 'org-auto-tangle-mode)
 
 ;; Minimap Binds
 (setq minimap-window-location 'right)
@@ -312,8 +318,8 @@ These pull from MELPA, so ~(package! example-melpa)~, would install =example-mel
 (package! elcord)
 (package! ivy-rich)
 (package! irony-eldoc)
+(package! org-auto-tangle)
 (package! company-irony-c-headers)
 (package! irony)
 (package! password-store)
-(package! cnfonts)
 #+END_SRC

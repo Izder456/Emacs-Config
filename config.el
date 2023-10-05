@@ -13,11 +13,8 @@
   '(doom-dashboard-menu-title :inherit font-lock-function-name-face))
 
 (custom-set-faces!
-  '(mode-line :family "Spleen" :height 1.0)
-  '(mode-line-inactive :family "Spleen" :height 1.0))
-
-;; Autofix Fonts
-(add-hook 'after-setting-font-hook #'cnfonts-set-font)
+  '(mode-line :family "Spleen" :size 12 :height 0.9)
+  '(mode-line-inactive :family "Spleen" :size 12 :height 0.9))
 
 ;; Org-mode
 (setq org-directory "~/Documents")
@@ -28,6 +25,12 @@
 ;; Clojure
 (add-hook 'clojure-mode-hook #'cider-jack-in)
 
+;; C/++
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
 ;; Chicken Scheme
 (setq scheme-program-name "chicken-csi -c:")
 (setq display-line-numbers-type t)
@@ -35,7 +38,6 @@
 
 ;; XClip
 (xclip-mode 1)
-
 
 ;; Mouse Support
 (xterm-mouse-mode 1)
@@ -53,6 +55,10 @@
 (map! :leader
       :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
       :desc "Open directory in neotree"  "d n" #'neotree-dir)
+
+;; ORG-mode
+(require 'org-auto-tangle)
+(add-hook 'org-mode-hook 'org-auto-tangle-mode)
 
 ;; Minimap Binds
 (setq minimap-window-location 'right)
