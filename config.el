@@ -30,13 +30,6 @@
 ;; Clojure
 (add-hook 'clojure-mode-hook #'cider-jack-in)
 
-;; C/++
-(use-package lsp-mode
-    :commands lsp
-    :ensure t
-    :config (setq lsp-prefer-flymake nil)
-    :hook ((c-mode c++-mode rust-mode objc-mode) . (lambda () (lsp))))
-
 ;; Chicken Scheme
 (setq scheme-program-name "chicken-csi -c:")
 (setq display-line-numbers-type t)

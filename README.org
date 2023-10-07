@@ -258,13 +258,6 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 ;; Clojure
 (add-hook 'clojure-mode-hook #'cider-jack-in)
 
-;; C/++
-(use-package lsp-mode
-    :commands lsp
-    :ensure t
-    :config (setq lsp-prefer-flymake nil)
-    :hook ((c-mode c++-mode rust-mode objc-mode) . (lambda () (lsp))))
-
 ;; Chicken Scheme
 (setq scheme-program-name "chicken-csi -c:")
 (setq display-line-numbers-type t)
@@ -278,9 +271,6 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 (global-set-key (kbd "M-SPC") 'shell-pop)
 
 #+END_SRC
-
-#+RESULTS:
-| rainbow-delimiters-mode | geiser-mode--maybe-activate |
 
 *** =AUTOSTARTS=
 
@@ -336,5 +326,6 @@ These pull from MELPA, so ~(package! example-melpa)~, would install =example-mel
 (package! ivy-rich)
 (package! org-auto-tangle)
 (package! password-store)
+(package! shell-pop)
 (package! shx)
 #+END_SRC

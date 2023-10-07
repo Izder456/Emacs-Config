@@ -8,4 +8,5 @@
 (package! ivy-rich)
 (package! org-auto-tangle)
 (package! password-store)
+(package! shell-pop)
 (package! shx)
