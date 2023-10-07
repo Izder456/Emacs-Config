@@ -20,21 +20,34 @@
 (setq org-directory "~/Documents")
 
 ;; Perl
+(require 'cperl-mode)
 (fset 'perl-mode 'cperl-mode)
+(setq cperl-invalid-face nil)
+(setq cperl-indent-parens-as-block t)
+(setq cperl-close-paren-offset (- cperl-indent-level))
+(add-hook 'cperl-mode-hook 'flycheck-mode)
 
 ;; Clojure
 (add-hook 'clojure-mode-hook #'cider-jack-in)
 
 ;; C/++
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'objc-mode-hook 'irony-mode)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+(use-package lsp-mode
+    :commands lsp
+    :ensure t
+    :config (setq lsp-prefer-flymake nil)
+    :hook ((c-mode c++-mode rust-mode objc-mode) . (lambda () (lsp))))
 
 ;; Chicken Scheme
 (setq scheme-program-name "chicken-csi -c:")
 (setq display-line-numbers-type t)
 (add-hook 'scheme-mode-hook #'geiser-mode--maybe-activate)
+
+;; Shell Debugging
+(require 'shx)
+(add-hook 'shell-mode-hook 'shx-mode)
+(require 'shell-pop)
+(setq shell-pop-autocd-to-working-dir t)
+(global-set-key (kbd "M-SPC") 'shell-pop)
 
 ;; XClip
 (xclip-mode 1)
