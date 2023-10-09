@@ -217,7 +217,7 @@ this is the package delcaration of DOOM Emacs Native packages
 
 These are my configs for theme coloring, fonts, and anything else that i didn't like that came vanilla
 
-*** =CONFIGURE-FACES=
+*** CONFIGURE-FACES
 
 #+BEGIN_SRC elisp :tangle config.el
 
@@ -241,7 +241,7 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 
 #+END_SRC
 
-*** =LANGUAGE-SPECIFIC=
+*** LANGUAGE-SPECIFIC
 
 #+BEGIN_SRC elisp :tangle config.el
 ;; Org-mode
@@ -272,7 +272,7 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 
 #+END_SRC
 
-*** =AUTOSTARTS=
+*** AUTOSTARTS
 
 #+BEGIN_SRC elisp :tangle config.el
 ;; XClip
@@ -282,11 +282,10 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 (xterm-mouse-mode 1)
 
 ;; Rainbow
-(rainbow-mode)
 (rainbow-delimiters-mode)
 #+END_SRC
 
-*** =IDE-FEATURES=
+*** IDE-FEATURES
 
 #+BEGIN_SRC elisp :tangle config.el
 ;; Neotree

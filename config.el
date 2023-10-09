@@ -49,7 +49,6 @@
 (xterm-mouse-mode 1)
 
 ;; Rainbow
-(rainbow-mode)
 (rainbow-delimiters-mode)
 
 ;; Neotree
