@@ -1,9 +1,12 @@
+;; Fonts
 (setq doom-font (font-spec :family "Spleen" :size 16 :weight 'Regular)
       doom-variable-pitch-font (font-spec :family "Spleen" :size 16 :weight 'Regular))
 (setq doom-theme 'doom-gruvbox)
 
+;; Giegue!!
 (setq fancy-splash-image (concat doom-user-dir "giegue.png"))
 
+;; Font
 (custom-set-faces!
   '(doom-dashboard-banner :foreground "#EBDBB2" :background "#282828" :weight bold)
   '(doom-dashboard-footer :inherit font-lock-constant-face)
@@ -12,18 +15,28 @@
   '(doom-dashboard-menu-desc :inherit font-lock-string-face)
   '(doom-dashboard-menu-title :inherit font-lock-function-name-face))
 
+;; Font Customs
 (custom-set-faces!
   '(mode-line :family "Spleen" :size 12 :height 0.9)
   '(mode-line-inactive :family "Spleen" :size 12 :height 0.9))
+
+;; Syntax Highlight
+(if (fboundp 'global-font-lock-mode)
+    (global-font-lock-mode 1))
 
 ;; Org-mode
 (setq org-directory "~/Documents")
 
 ;; Perl
 (require 'cperl-mode)
-(fset 'perl-mode 'cperl-mode)
+(mapc
+ (lambda (pair)
+   (if (eq (cdr pair) 'perl-mode)
+       (setcdr pair 'cperl-mode)))
+ (append auto-mode-alist interpreter-mode-alist))
 (setq cperl-invalid-face nil)
 (setq cperl-indent-parens-as-block t)
+(setq cperl-font-lock t)
 (setq cperl-close-paren-offset (- cperl-indent-level))
 (add-hook 'cperl-mode-hook 'flycheck-mode)
 
