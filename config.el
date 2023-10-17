@@ -74,10 +74,6 @@
       :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
       :desc "Open directory in neotree"  "d n" #'neotree-dir)
 
-;; ORG-mode
-(require 'org-auto-tangle)
-(add-hook 'org-mode-hook 'org-auto-tangle-mode)
-
 ;; Minimap Binds
 (setq minimap-window-location 'right)
 (map! :leader
