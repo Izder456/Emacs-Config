@@ -43,7 +43,11 @@ this is the package delcaration of DOOM Emacs Native packages
        ;;helm                 ; the *other* search engine for love and life
        ;;ido                  ; the other *other* search engine...
 <<<<<<< HEAD
+<<<<<<< HEAD
        (ivy +icons +fuzzy)    ; a search engine for love and life
+=======
+       (ivy +fuzzy +icons)    ; a search engine for love and life
+>>>>>>> f377804 (update a bit)
 =======
        (ivy +fuzzy +icons)    ; a search engine for love and life
 >>>>>>> f377804 (update a bit)
@@ -92,7 +96,11 @@ this is the package delcaration of DOOM Emacs Native packages
        (dired +icons +ranger) ; making dired pretty [functional]
        electric               ; smarter, keyword-based electric-indent
 <<<<<<< HEAD
+<<<<<<< HEAD
        (ibuffer +icons)       ; interactive buffer management
+=======
+       ;;ibuffer              ; interactive buffer management
+>>>>>>> f377804 (update a bit)
 =======
        ;;ibuffer              ; interactive buffer management
 >>>>>>> f377804 (update a bit)
@@ -160,7 +168,11 @@ this is the package delcaration of DOOM Emacs Native packages
        ;;faust                ; dsp, but you get to keep your soul
        ;;fortran              ; in FORTRAN, GOD is REAL (unless declared INTEGER)
 <<<<<<< HEAD
+<<<<<<< HEAD
        (fsharp +lsp)          ; ML stands for Microsoft's Language
+=======
+       (fsharp +lsp)           ; ML stands for Microsoft's Language
+>>>>>>> f377804 (update a bit)
 =======
        (fsharp +lsp)           ; ML stands for Microsoft's Language
 >>>>>>> f377804 (update a bit)
@@ -306,12 +318,15 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 (xterm-mouse-mode 1)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ;; Rainbow
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'text-mode-hook 'rainbow-delimiters-mdoe)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (add-hook 'text-mode-hook 'rainbow-mode)
 =======
+=======
+>>>>>>> f377804 (update a bit)
 ;; Rainbow-Parens
 (add-hook 'text-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
@@ -320,6 +335,9 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 (add-hook 'text-mode-hook 'rainbow-mode)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (add-hook 'org-mode-hook 'rainbow-mode)
+<<<<<<< HEAD
+>>>>>>> f377804 (update a bit)
+=======
 >>>>>>> f377804 (update a bit)
 #+END_SRC
 

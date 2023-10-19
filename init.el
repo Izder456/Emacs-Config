@@ -9,7 +9,11 @@
        ;;helm                 ; the *other* search engine for love and life
        ;;ido                  ; the other *other* search engine...
 <<<<<<< HEAD
+<<<<<<< HEAD
        (ivy +icons +fuzzy)    ; a search engine for love and life
+=======
+       (ivy +fuzzy +icons)    ; a search engine for love and life
+>>>>>>> f377804 (update a bit)
 =======
        (ivy +fuzzy +icons)    ; a search engine for love and life
 >>>>>>> f377804 (update a bit)
@@ -58,7 +62,11 @@
        (dired +icons +ranger) ; making dired pretty [functional]
        electric               ; smarter, keyword-based electric-indent
 <<<<<<< HEAD
+<<<<<<< HEAD
        (ibuffer +icons)       ; interactive buffer management
+=======
+       ;;ibuffer              ; interactive buffer management
+>>>>>>> f377804 (update a bit)
 =======
        ;;ibuffer              ; interactive buffer management
 >>>>>>> f377804 (update a bit)
@@ -126,7 +134,11 @@
        ;;faust                ; dsp, but you get to keep your soul
        ;;fortran              ; in FORTRAN, GOD is REAL (unless declared INTEGER)
 <<<<<<< HEAD
+<<<<<<< HEAD
        (fsharp +lsp)          ; ML stands for Microsoft's Language
+=======
+       (fsharp +lsp)           ; ML stands for Microsoft's Language
+>>>>>>> f377804 (update a bit)
 =======
        (fsharp +lsp)           ; ML stands for Microsoft's Language
 >>>>>>> f377804 (update a bit)
