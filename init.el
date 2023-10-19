@@ -5,10 +5,14 @@
        ;;layout               ; auie,ctsrnm is the superior home row
 
        :completion
-       company                ; the ultimate code completion backend
+       (company +tng)         ; the ultimate code completion backend
        ;;helm                 ; the *other* search engine for love and life
        ;;ido                  ; the other *other* search engine...
+<<<<<<< HEAD
        (ivy +icons +fuzzy)    ; a search engine for love and life
+=======
+       (ivy +fuzzy +icons)    ; a search engine for love and life
+>>>>>>> f377804 (update a bit)
        ;;vertico              ; the search engine of the future
 
        :ui
@@ -42,7 +46,7 @@
        fold                   ; (nigh) universal code folding
        ;;(format +onsave)     ; automated prettiness
        ;;god                  ; run Emacs commands without modifier keys
-       ;;lispy                ; vim for lisp, for people who don't like vim
+       lispy                  ; vim for lisp, for people who don't like vim
        ;;multiple-cursors     ; editing in many places at once
        ;;objed                ; text object editing for the innocent
        ;;parinfer             ; turn lisp into python, sort of
@@ -53,7 +57,11 @@
        :emacs
        (dired +icons +ranger) ; making dired pretty [functional]
        electric               ; smarter, keyword-based electric-indent
+<<<<<<< HEAD
        (ibuffer +icons)       ; interactive buffer management
+=======
+       ;;ibuffer              ; interactive buffer management
+>>>>>>> f377804 (update a bit)
        (undo +tree)           ; persistent, smarter undo for your inevitable mistakes
        vc                     ; version-control and Emacs, sitting in a tree
 
@@ -64,8 +72,8 @@
        vterm                  ; the best terminal emulation in Emacs
 
        :checkers
-       syntax                 ; tasing you for every semicolon you forget
-       (spell +flyspell)      ; tasing you for misspelling mispelling
+       syntax   ; tasing you for every semicolon you forget
+       (spell +hunspell)      ; tasing you for misspelling mispelling
        grammar                ; tasing grammar mistake every you make
 
        :tools
@@ -83,8 +91,8 @@
        lsp                    ; M-x vscode
        ;;magit                ; a git porcelain for Emacs
        make                   ; run make tasks from Emacs
-       ;;pass                   ; password manager for nerds
-       ;;pdf                    ; pdf enhancements
+       ;;pass                 ; password manager for nerds
+       ;;pdf                  ; pdf enhancements
        ;;prodigy              ; FIXME managing external services & code builders
        rgb                    ; creating color strings
        ;;taskrunner           ; taskrunner for all your projects
@@ -105,7 +113,7 @@
        common-lisp            ; if you've seen one lisp, you've seen them all
        ;;coq                  ; proofs-as-programs
        ;;(crystal +lsp)       ; ruby at the speed of c
-       ;;csharp               ; unity, .NET, and mono shenanigans
+       (csharp +lsp)          ; unity, .NET, and mono shenanigans
        data                   ; config/data formats
        ;;(dart +flutter)      ; paint ui and not much else
        ;;dhall
@@ -117,7 +125,11 @@
        ;;factor
        ;;faust                ; dsp, but you get to keep your soul
        ;;fortran              ; in FORTRAN, GOD is REAL (unless declared INTEGER)
+<<<<<<< HEAD
        (fsharp +lsp)          ; ML stands for Microsoft's Language
+=======
+       (fsharp +lsp)           ; ML stands for Microsoft's Language
+>>>>>>> f377804 (update a bit)
        ;;fstar                ; (dependent) types and (monadic) effects and Z3
        ;;gdscript             ; the language you waited for
        ;;(go +lsp)            ; the hipster dialect
@@ -130,7 +142,7 @@
        ;;(javascript +lsp)    ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia                ; a better, faster MATLAB
        ;;kotlin               ; a better, slicker Java(Script)
-       ;;latex                ; writing papers in Emacs has never been so fun
+       (latex +lsp +fold)     ; writing papers in Emacs has never been so fun
        ;;lean                 ; for folks with too much to prove
        ;;ledger               ; be audit you can be
        ;;(lua +lsp)           ; one-based indices? one-based indices
@@ -138,7 +150,7 @@
        ;;(nim +lsp)           ; python + lisp at the speed of c
        ;;nix                  ; I hereby declare "nix geht mehr!"
        ;;ocaml                ; an objective camel
-       org                    ; organize your plain life in plain text
+       (org +pretty)                    ; organize your plain life in plain text
        ;;(php +lsp)           ; perl's insecure younger brother
        ;;plantuml             ; diagrams for confusing people more
        ;;(purescript +lsp)    ; javascript, but functional
@@ -152,7 +164,7 @@
        ;;(rust +lsp)          ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala                ; java, but good
        (scheme +chicken +lsp) ; a fully conniving family of lisps
-       (sh +lsp)              ; she sells {ba,z,fi}sh shells on the C xor
+       (sh +lsp)        ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity             ; do you need a blockchain? No.
        ;;swift                ; who asked for emoji variables?
