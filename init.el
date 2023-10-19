@@ -8,7 +8,7 @@
        company                ; the ultimate code completion backend
        ;;helm                 ; the *other* search engine for love and life
        ;;ido                  ; the other *other* search engine...
-       ivy                    ; a search engine for love and life
+       (ivy +icons +fuzzy)    ; a search engine for love and life
        ;;vertico              ; the search engine of the future
 
        :ui
@@ -16,11 +16,11 @@
        doom                   ; what makes DOOM look the way it does
        doom-dashboard         ; a nifty splash screen for Emacs
        doom-quit              ; DOOM quit-message prompts when you quit Emacs
-       (emoji +unicode)       ; 🙂
+       (emoji +github +ascii) ; 🙂
        hl-todo                ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        indent-guides          ; highlighted indent columns
-       ligatures              ; ligatures and symbols to make your code pretty again
+       (ligatures +extra +fira)
        minimap                ; show a map of the code on the side
        modeline               ; snazzy, Atom-inspired modeline, plus API
        nav-flash              ; blink cursor line after big motions
@@ -51,11 +51,11 @@
        word-wrap              ; soft wrapping with language-aware indent
 
        :emacs
-       dired                  ; making dired pretty [functional]
+       (dired +icons +ranger) ; making dired pretty [functional]
        electric               ; smarter, keyword-based electric-indent
-       ibuffer                ; interactive buffer management
-       undo                   ; persistent, smarter undo for your inevitable mistakes
-       ;;vc                   ; version-control and Emacs, sitting in a tree
+       (ibuffer +icons)       ; interactive buffer management
+       (undo +tree)           ; persistent, smarter undo for your inevitable mistakes
+       vc                     ; version-control and Emacs, sitting in a tree
 
        :term
        eshell                 ; the elisp shell that works everywhere
@@ -117,7 +117,7 @@
        ;;factor
        ;;faust                ; dsp, but you get to keep your soul
        ;;fortran              ; in FORTRAN, GOD is REAL (unless declared INTEGER)
-       ;;fsharp               ; ML stands for Microsoft's Language
+       (fsharp +lsp)          ; ML stands for Microsoft's Language
        ;;fstar                ; (dependent) types and (monadic) effects and Z3
        ;;gdscript             ; the language you waited for
        ;;(go +lsp)            ; the hipster dialect
@@ -134,7 +134,7 @@
        ;;lean                 ; for folks with too much to prove
        ;;ledger               ; be audit you can be
        ;;(lua +lsp)           ; one-based indices? one-based indices
-       ;;markdown             ; writing docs for people to ignore
+       markdown             ; writing docs for people to ignore
        ;;(nim +lsp)           ; python + lisp at the speed of c
        ;;nix                  ; I hereby declare "nix geht mehr!"
        ;;ocaml                ; an objective camel
@@ -176,4 +176,4 @@
 
        :config
        ;;literate
-       (default +bindings +smartparens))
+       (default +bindings))

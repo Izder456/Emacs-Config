@@ -62,7 +62,10 @@
 (xterm-mouse-mode 1)
 
 ;; Rainbow
-(rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'text-mode-hook 'rainbow-delimiters-mdoe)
+(add-hook 'prog-mode-hook 'rainbow-mode)
+(add-hook 'text-mode-hook 'rainbow-mode)
 
 ;; Neotree
 (after! neotree
