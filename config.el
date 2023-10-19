@@ -61,28 +61,11 @@
 ;; Mouse Support
 (xterm-mouse-mode 1)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ;; Rainbow
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'text-mode-hook 'rainbow-delimiters-mdoe)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (add-hook 'text-mode-hook 'rainbow-mode)
-=======
-=======
->>>>>>> f377804 (update a bit)
-;; Rainbow-Parens
-(add-hook 'text-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'org-mode-hook 'rainbow-delimiters-mode)
-;; Rainbow-Mode
-(add-hook 'text-mode-hook 'rainbow-mode)
-(add-hook 'prog-mode-hook 'rainbow-mode)
-(add-hook 'org-mode-hook 'rainbow-mode)
-<<<<<<< HEAD
->>>>>>> f377804 (update a bit)
-=======
->>>>>>> f377804 (update a bit)
 
 ;; Neotree
 (after! neotree
