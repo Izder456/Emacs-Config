@@ -173,7 +173,7 @@ this is the package delcaration of DOOM Emacs Native packages
        ;;nix                  ; I hereby declare "nix geht mehr!"
        ;;ocaml                ; an objective camel
        org                    ; organize your plain life in plain text
-       (php +lsp)             ; perl's insecure younger brother
+       ;;(php +lsp)           ; perl's insecure younger brother
        ;;plantuml             ; diagrams for confusing people more
        ;;(purescript +lsp)    ; javascript, but functional
        (python +lsp)          ; beautiful is better than ugly
