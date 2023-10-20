@@ -2,7 +2,11 @@
 #+DESCRIPTION: Mainly for personal backups, but if you want 'em, use 'em.
 #+KEYWORDS: org-mode, emacs, doom-emacs, readme, elisp, izder
 #+LANGUAGE: en
+<<<<<<< HEAD
 #+PROPERTY: header-args: :tangle ~/.dotfiles/Emacs-Config :mkdirp t
+=======
+#+PROPERTY: header-args: :tangle ~/.doom.d :mkdirp t
+>>>>>>> f2ca73b1a06787fe04980332e6ce89ed58c6b330
 
 + Intended for use with *DOOM Emacs*.
 
@@ -99,7 +103,7 @@ this is the package delcaration of DOOM Emacs Native packages
        vterm                  ; the best terminal emulation in Emacs
 
        :checkers
-       syntax   ; tasing you for every semicolon you forget
+       syntax                 ; tasing you for every semicolon you forget
        (spell +hunspell)      ; tasing you for misspelling mispelling
        grammar                ; tasing grammar mistake every you make
 
@@ -169,11 +173,11 @@ this is the package delcaration of DOOM Emacs Native packages
        ;;lean                 ; for folks with too much to prove
        ;;ledger               ; be audit you can be
        ;;(lua +lsp)           ; one-based indices? one-based indices
-       markdown             ; writing docs for people to ignore
+       markdown               ; writing docs for people to ignore
        ;;(nim +lsp)           ; python + lisp at the speed of c
        ;;nix                  ; I hereby declare "nix geht mehr!"
        ;;ocaml                ; an objective camel
-       (org +pretty)                    ; organize your plain life in plain text
+       (org +pretty)          ; organize your plain life in plain text
        ;;(php +lsp)           ; perl's insecure younger brother
        ;;plantuml             ; diagrams for confusing people more
        ;;(purescript +lsp)    ; javascript, but functional
@@ -187,7 +191,7 @@ this is the package delcaration of DOOM Emacs Native packages
        ;;(rust +lsp)          ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala                ; java, but good
        (scheme +chicken +lsp) ; a fully conniving family of lisps
-       (sh +lsp)        ; she sells {ba,z,fi}sh shells on the C xor
+       (sh +lsp)              ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity             ; do you need a blockchain? No.
        ;;swift                ; who asked for emoji variables?

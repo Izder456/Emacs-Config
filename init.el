@@ -64,7 +64,7 @@
        vterm                  ; the best terminal emulation in Emacs
 
        :checkers
-       syntax   ; tasing you for every semicolon you forget
+       syntax                 ; tasing you for every semicolon you forget
        (spell +hunspell)      ; tasing you for misspelling mispelling
        grammar                ; tasing grammar mistake every you make
 
@@ -134,11 +134,11 @@
        ;;lean                 ; for folks with too much to prove
        ;;ledger               ; be audit you can be
        ;;(lua +lsp)           ; one-based indices? one-based indices
-       markdown             ; writing docs for people to ignore
+       markdown               ; writing docs for people to ignore
        ;;(nim +lsp)           ; python + lisp at the speed of c
        ;;nix                  ; I hereby declare "nix geht mehr!"
        ;;ocaml                ; an objective camel
-       (org +pretty)                    ; organize your plain life in plain text
+       (org +pretty)          ; organize your plain life in plain text
        ;;(php +lsp)           ; perl's insecure younger brother
        ;;plantuml             ; diagrams for confusing people more
        ;;(purescript +lsp)    ; javascript, but functional
@@ -152,7 +152,7 @@
        ;;(rust +lsp)          ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala                ; java, but good
        (scheme +chicken +lsp) ; a fully conniving family of lisps
-       (sh +lsp)        ; she sells {ba,z,fi}sh shells on the C xor
+       (sh +lsp)              ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity             ; do you need a blockchain? No.
        ;;swift                ; who asked for emoji variables?
