@@ -2,11 +2,7 @@
 #+DESCRIPTION: Mainly for personal backups, but if you want 'em, use 'em.
 #+KEYWORDS: org-mode, emacs, doom-emacs, readme, elisp, izder
 #+LANGUAGE: en
-<<<<<<< HEAD
-#+PROPERTY: header-args: :tangle ~/.dotfiles/Emacs-Config :mkdirp t
-=======
 #+PROPERTY: header-args: :tangle ~/.doom.d :mkdirp t
->>>>>>> f2ca73b1a06787fe04980332e6ce89ed58c6b330
 
 + Intended for use with *DOOM Emacs*.
 
