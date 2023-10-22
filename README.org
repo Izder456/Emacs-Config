@@ -1,7 +1,6 @@
 #+TITLE: Iz's DOOM Emacs Config
 #+DESCRIPTION: Mainly for personal backups, but if you want 'em, use 'em.
 #+KEYWORDS: org-mode, emacs, doom-emacs, readme, elisp, izder
-#+LANGUAGE: en
 #+PROPERTY: header-args: :tangle ~/.doom.d :mkdirp t
 
 + Intended for use with *DOOM Emacs*.
@@ -28,7 +27,7 @@
 
 * Code Structure
 
-** [[init.el][=init.el=]]
+** [[init.el][init.el]]
 
 this is the package delcaration of DOOM Emacs Native packages
 
@@ -55,7 +54,7 @@ this is the package delcaration of DOOM Emacs Native packages
        hl-todo                ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        indent-guides          ; highlighted indent columns
-       (ligatures +extra +fira)
+       (ligatures +fira)
        minimap                ; show a map of the code on the side
        modeline               ; snazzy, Atom-inspired modeline, plus API
        nav-flash              ; blink cursor line after big motions
@@ -87,7 +86,7 @@ this is the package delcaration of DOOM Emacs Native packages
 
        :emacs
        (dired +icons +ranger) ; making dired pretty [functional]
-       electric               ; smarter, keyword-based electric-indent
+       ;;electric             ; smarter, keyword-based electric-indent
        ;;ibuffer              ; interactive buffer management
        (undo +tree)           ; persistent, smarter undo for your inevitable mistakes
        vc                     ; version-control and Emacs, sitting in a tree
@@ -184,7 +183,7 @@ this is the package delcaration of DOOM Emacs Native packages
        ;;rest                 ; Emacs as a REST client
        ;;rst                  ; ReST in peace
        (ruby +lsp)            ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       ;;(rust +lsp)          ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       (rust +lsp)            ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala                ; java, but good
        (scheme +chicken +lsp) ; a fully conniving family of lisps
        (sh +lsp)              ; she sells {ba,z,fi}sh shells on the C xor
@@ -214,7 +213,7 @@ this is the package delcaration of DOOM Emacs Native packages
        (default +bindings))
 #+END_SRC
 
-** [[config.el][=config.el=]]
+** [[config.el][config.el]]
 
 These are my configs for theme coloring, fonts, and anything else that i didn't like that came vanilla
 
@@ -222,12 +221,18 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 
 #+BEGIN_SRC elisp :tangle config.el
 ;; Fonts
-(setq doom-font (font-spec :family "Spleen" :size 16 :weight 'Regular)
-      doom-variable-pitch-font (font-spec :family "Spleen" :size 16 :weight 'Regular))
+(setq doom-font (font-spec :family "Spleen" :size 16 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "Spleen" :size 16 :weight 'regular)
+      doom-unicode-font (font-spec :family "Unifont" :weight 'semi-bold)
+      doom-big-font (font-spec :family "Spleen" :size 18 :weight 'semi-bold))
 (setq doom-theme 'doom-gruvbox)
 
 ;; Giegue!!
 (setq fancy-splash-image (concat doom-user-dir "giegue.png"))
+
+;; $HOME Remove Projectile
+(after! projectile (setq projectile-project-root-files-bottom-up (remove ".git"
+  projectile-project-root-files-bottom-up)))
 
 ;; Font
 (custom-set-faces!
@@ -246,14 +251,39 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 ;; Syntax Highlight
 (if (fboundp 'global-font-lock-mode)
     (global-font-lock-mode 1))
+
+(show-paren-mode 1)
+
+;; Delete without register
+(evil-define-operator evil-delete-without-register (beg end type yank-handler)
+  (interactive "<R><y>")
+  (evil-delete beg end type ?_ yank-handler))
+(define-key evil-normal-state-map (kbd "d") 'evil-delete-without-register)
+(define-key evil-visual-state-map (kbd "d") 'evil-delete-without-register)
+(define-key evil-normal-state-map (kbd "D") 'evil-delete)
+(define-key evil-visual-state-map (kbd "D") 'evil-delete)
 #+END_SRC
 
 *** LANGUAGE-SPECIFIC
 
 #+BEGIN_SRC elisp :tangle config.el
 
+;;
+; Docs
+;;
+
 ;; Org-mode
 (setq org-directory "~/Documents")
+
+;; nrepl
+(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
+(setq nrepl-popup-stacktraces nil)
+(add-to-list 'same-window-buffer-names "*nrepl*")
+(add-hook 'nrepl-mode-hook 'paredit-mode)
+
+;;
+; Scripting
+;;
 
 ;; Perl
 (require 'cperl-mode)
@@ -268,14 +298,6 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 (setq cperl-close-paren-offset (- cperl-indent-level))
 (add-hook 'cperl-mode-hook 'flycheck-mode)
 
-;; Clojure
-(add-hook 'clojure-mode-hook #'cider-jack-in)
-
-;; Chicken Scheme
-(setq scheme-program-name "chicken-csi -c:")
-(setq display-line-numbers-type t)
-(add-hook 'scheme-mode-hook #'geiser-mode--maybe-activate)
-
 ;; Shell Debugging
 (require 'shx)
 (add-hook 'shell-mode-hook 'shx-mode)
@@ -283,7 +305,32 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 (setq shell-pop-autocd-to-working-dir t)
 (global-set-key (kbd "M-SPC") 'shell-pop)
 
+;;
+; Lisps
+;;
+
+;; HyLang
+(add-hook 'hy-mode-hook 'paredit-mode)
+
+;; ELisp
+(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+
+;; Common Lisp
+(add-hook 'common-lisp-mode-hook 'paredit-mode)
+
+;; Chicken Scheme
+(setq scheme-program-name "chicken-csi -c:")
+(setq display-line-numbers-type t)
+(add-hook 'scheme-mode-hook 'geiser-mode--maybe-activate)
+(add-hook 'scheme-mode-hook 'paredit-mode)
+
+;; Clojure
+(add-hook 'clojure-mode-hook 'cider-jack-in)
+(add-hook 'clojure-mode-hook 'paredit-mode)
 #+END_SRC
+
+#+RESULTS:
+| paredit-mode | cider-jack-in | rainbow-delimiters-mode | lispy-mode | +evil-embrace-lisp-mode-hook-h |
 
 *** AUTOSTARTS
 
@@ -296,7 +343,7 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 
 ;; Rainbow
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'text-mode-hook 'rainbow-delimiters-mdoe)
+(add-hook 'text-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (add-hook 'text-mode-hook 'rainbow-mode)
 #+END_SRC
@@ -325,7 +372,7 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
        :desc "Toggle minimap-mode" "m" #'minimap-mode))
 #+END_SRC
 
-** [[packages.el][=packages.el=]]
+** [[packages.el][packages.el]]
 
 This is for my Non-Native Overrides.
 These pull from MELPA, so ~(package! example-melpa)~, would install =example-melpa= on each doom sync.

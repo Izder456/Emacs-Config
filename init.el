@@ -20,7 +20,7 @@
        hl-todo                ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        indent-guides          ; highlighted indent columns
-       (ligatures +extra +fira)
+       (ligatures +fira)
        minimap                ; show a map of the code on the side
        modeline               ; snazzy, Atom-inspired modeline, plus API
        nav-flash              ; blink cursor line after big motions
@@ -52,7 +52,7 @@
 
        :emacs
        (dired +icons +ranger) ; making dired pretty [functional]
-       electric               ; smarter, keyword-based electric-indent
+       ;;electric             ; smarter, keyword-based electric-indent
        ;;ibuffer              ; interactive buffer management
        (undo +tree)           ; persistent, smarter undo for your inevitable mistakes
        vc                     ; version-control and Emacs, sitting in a tree
@@ -149,7 +149,7 @@
        ;;rest                 ; Emacs as a REST client
        ;;rst                  ; ReST in peace
        (ruby +lsp)            ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       ;;(rust +lsp)          ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       (rust +lsp)            ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala                ; java, but good
        (scheme +chicken +lsp) ; a fully conniving family of lisps
        (sh +lsp)              ; she sells {ba,z,fi}sh shells on the C xor
