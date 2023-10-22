@@ -30,6 +30,7 @@
 (if (fboundp 'global-font-lock-mode)
     (global-font-lock-mode 1))
 
+;; Show-Parens
 (show-paren-mode 1)
 
 ;; Delete without register
@@ -108,8 +109,10 @@
 (xterm-mouse-mode 1)
 
 ;; Rainbow
+(add-hook 'org-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'text-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'org-mode-hook 'rainbow-mode)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (add-hook 'text-mode-hook 'rainbow-mode)
 

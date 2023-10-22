@@ -75,8 +75,6 @@ this is the package delcaration of DOOM Emacs Native packages
        file-templates         ; auto-snippets for empty files
        fold                   ; (nigh) universal code folding
        ;;(format +onsave)     ; automated prettiness
-       ;;god                  ; run Emacs commands without modifier keys
-       lispy                  ; vim for lisp, for people who don't like vim
        ;;multiple-cursors     ; editing in many places at once
        ;;objed                ; text object editing for the innocent
        ;;parinfer             ; turn lisp into python, sort of
@@ -252,6 +250,7 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 (if (fboundp 'global-font-lock-mode)
     (global-font-lock-mode 1))
 
+;; Show-Parens
 (show-paren-mode 1)
 
 ;; Delete without register
@@ -329,9 +328,6 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 (add-hook 'clojure-mode-hook 'paredit-mode)
 #+END_SRC
 
-#+RESULTS:
-| paredit-mode | cider-jack-in | rainbow-delimiters-mode | lispy-mode | +evil-embrace-lisp-mode-hook-h |
-
 *** AUTOSTARTS
 
 #+BEGIN_SRC elisp :tangle config.el
@@ -342,8 +338,10 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 (xterm-mouse-mode 1)
 
 ;; Rainbow
+(add-hook 'org-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'text-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'org-mode-hook 'rainbow-mode)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (add-hook 'text-mode-hook 'rainbow-mode)
 #+END_SRC
