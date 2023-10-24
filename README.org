@@ -50,7 +50,7 @@ this is the package delcaration of DOOM Emacs Native packages
        doom                   ; what makes DOOM look the way it does
        doom-dashboard         ; a nifty splash screen for Emacs
        doom-quit              ; DOOM quit-message prompts when you quit Emacs
-       (emoji +github +ascii) ; 🙂
+       (emoji +github)        ; 🙂
        hl-todo                ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        indent-guides          ; highlighted indent columns
@@ -74,7 +74,6 @@ this is the package delcaration of DOOM Emacs Native packages
        (evil +everywhere)     ; come to the dark side, we have cookies
        file-templates         ; auto-snippets for empty files
        fold                   ; (nigh) universal code folding
-       lispy
        ;;(format +onsave)     ; automated prettiness
        ;;multiple-cursors     ; editing in many places at once
        ;;objed                ; text object editing for the innocent
@@ -98,8 +97,8 @@ this is the package delcaration of DOOM Emacs Native packages
 
        :checkers
        syntax                 ; tasing you for every semicolon you forget
-       (spell +hunspell)      ; tasing you for misspelling mispelling
-       grammar                ; tasing grammar mistake every you make
+       ;; (spell +hunspell)   ; tasing you for misspelling mispelling
+       ;; grammar             ; tasing grammar mistake every you make
 
        :tools
        ;;ansible
@@ -286,17 +285,13 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 ;;
 
 ;; Perl
-(require 'cperl-mode)
-(mapc
- (lambda (pair)
-   (if (eq (cdr pair) 'perl-mode)
-       (setcdr pair 'cperl-mode)))
- (append auto-mode-alist interpreter-mode-alist))
-(setq cperl-invalid-face nil)
-(setq cperl-indent-parens-as-block t)
-(setq cperl-font-lock t)
-(setq cperl-close-paren-offset (- cperl-indent-level))
-(add-hook 'cperl-mode-hook 'flycheck-mode)
+(use-package! cperl-mode
+  :mode ("\\.\\(p[lm]\\|t\\)$" . cperl-mode)
+  :interpreter ("perl" . cperl-mode)
+  :init
+  (setq cperl-electric-parens-mark t)
+  (setq cperl-hairy t)
+  (setq cperl-electric-lbrace-space t))
 
 ;; Shell Debugging
 (require 'shx)
@@ -309,24 +304,12 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 ; Lisps
 ;;
 
-;; HyLang
-(add-hook 'hy-mode-hook 'paredit-mode)
-
-;; ELisp
-(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
-
-;; Common Lisp
-(add-hook 'common-lisp-mode-hook 'paredit-mode)
-
-;; Chicken Scheme
-(setq scheme-program-name "chicken-csi -c:")
+;; Chicken
 (setq display-line-numbers-type t)
 (add-hook 'scheme-mode-hook 'geiser-mode--maybe-activate)
-(add-hook 'scheme-mode-hook 'paredit-mode)
 
 ;; Clojure
 (add-hook 'clojure-mode-hook 'cider-jack-in)
-(add-hook 'clojure-mode-hook 'paredit-mode)
 #+END_SRC
 
 *** AUTOSTARTS
@@ -339,10 +322,9 @@ These are my configs for theme coloring, fonts, and anything else that i didn't 
 (xterm-mouse-mode 1)
 
 ;; Rainbow
-(add-hook 'org-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'text-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'org-mode-hook 'rainbow-mode)
+
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (add-hook 'text-mode-hook 'rainbow-mode)
 #+END_SRC

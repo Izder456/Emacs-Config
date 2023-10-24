@@ -16,7 +16,7 @@
        doom                   ; what makes DOOM look the way it does
        doom-dashboard         ; a nifty splash screen for Emacs
        doom-quit              ; DOOM quit-message prompts when you quit Emacs
-       (emoji +github +ascii) ; 🙂
+       (emoji +github)        ; 🙂
        hl-todo                ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        indent-guides          ; highlighted indent columns
@@ -40,7 +40,6 @@
        (evil +everywhere)     ; come to the dark side, we have cookies
        file-templates         ; auto-snippets for empty files
        fold                   ; (nigh) universal code folding
-       lispy
        ;;(format +onsave)     ; automated prettiness
        ;;multiple-cursors     ; editing in many places at once
        ;;objed                ; text object editing for the innocent
@@ -64,8 +63,8 @@
 
        :checkers
        syntax                 ; tasing you for every semicolon you forget
-       (spell +hunspell)      ; tasing you for misspelling mispelling
-       grammar                ; tasing grammar mistake every you make
+       ;; (spell +hunspell)   ; tasing you for misspelling mispelling
+       ;; grammar             ; tasing grammar mistake every you make
 
        :tools
        ;;ansible

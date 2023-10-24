@@ -60,17 +60,13 @@
 ;;
 
 ;; Perl
-(require 'cperl-mode)
-(mapc
- (lambda (pair)
-   (if (eq (cdr pair) 'perl-mode)
-       (setcdr pair 'cperl-mode)))
- (append auto-mode-alist interpreter-mode-alist))
-(setq cperl-invalid-face nil)
-(setq cperl-indent-parens-as-block t)
-(setq cperl-font-lock t)
-(setq cperl-close-paren-offset (- cperl-indent-level))
-(add-hook 'cperl-mode-hook 'flycheck-mode)
+(use-package! cperl-mode
+  :mode ("\\.\\(p[lm]\\|t\\)$" . cperl-mode)
+  :interpreter ("perl" . cperl-mode)
+  :init
+  (setq cperl-electric-parens-mark t)
+  (setq cperl-hairy t)
+  (setq cperl-electric-lbrace-space t))
 
 ;; Shell Debugging
 (require 'shx)
@@ -83,24 +79,12 @@
 ; Lisps
 ;;
 
-;; HyLang
-(add-hook 'hy-mode-hook 'paredit-mode)
-
-;; ELisp
-(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
-
-;; Common Lisp
-(add-hook 'common-lisp-mode-hook 'paredit-mode)
-
-;; Chicken Scheme
-(setq scheme-program-name "chicken-csi -c:")
+;; Chicken
 (setq display-line-numbers-type t)
 (add-hook 'scheme-mode-hook 'geiser-mode--maybe-activate)
-(add-hook 'scheme-mode-hook 'paredit-mode)
 
 ;; Clojure
 (add-hook 'clojure-mode-hook 'cider-jack-in)
-(add-hook 'clojure-mode-hook 'paredit-mode)
 
 ;; XClip
 (xclip-mode 1)
@@ -109,10 +93,9 @@
 (xterm-mouse-mode 1)
 
 ;; Rainbow
-(add-hook 'org-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'text-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'org-mode-hook 'rainbow-mode)
+
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (add-hook 'text-mode-hook 'rainbow-mode)
 
